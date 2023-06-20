@@ -23,3 +23,19 @@
 
 - Iniciando projeto go: go mod init github.com/rodolfoHOk/fullcycle.imersao13/ms-bolsa-simulator
 - Instalando dependências externas: go mod tidy
+
+## Como rodar
+
+### Requisitos
+
+- go lang instalado
+
+### Comandos para rodar
+
+- clonar no repositório git: https://github.com/rodolfoHOk/fullcycle.imersao13.git
+- cd kafka
+- docker compose up -d
+- cd ..
+- cd
+- cd ms-bolsa-simulator
+- go run cmd/trade/main.go
