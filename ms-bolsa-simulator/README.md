@@ -5,6 +5,7 @@
 ## Tecnologias
 
 - Linguagem Go
+- Apache Kafka
 
 ## Entendendo as Filas de Ordem de Compra e Ordem de Venda
 
@@ -21,3 +22,4 @@
 ## Guia
 
 - Iniciando projeto go: go mod init github.com/rodolfoHOk/fullcycle.imersao13/ms-bolsa-simulator
+- Instalando dependências externas: go mod tidy
