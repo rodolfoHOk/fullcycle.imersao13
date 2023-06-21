@@ -36,6 +36,5 @@
 - cd kafka
 - docker compose up -d
 - cd ..
-- cd
 - cd ms-bolsa-simulator
 - go run cmd/trade/main.go
