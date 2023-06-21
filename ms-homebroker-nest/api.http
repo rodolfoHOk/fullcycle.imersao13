@@ -113,7 +113,7 @@ Content-Type: application/json
 GET http://localhost:3000/wallets/wallet2/orders
 
 ###
-GET http://localhost:3000/wallets/wallet2/assets
+GET http://localhost:3000/wallets/wallet1/assets
 
 ###
 GET http://localhost:3000/assets
