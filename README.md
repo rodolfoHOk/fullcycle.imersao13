@@ -12,12 +12,16 @@
 - Docker
 - SSE - Server sent events
 
-## Dinâmica do projeto
+## Dinâmica do projeto / Arquitetura Geral
 
 ![Dinâmica do projeto Imagem](arquivos/dinamica-projeto.png)
+
+### Detalhamento
+
+![Arquitetura Geral](arquivos/arquitetura-geral.png)
 
 ## Repositórios
 
 - [Microsserviço Simulador de Bolsa de Valores](ms-bolsa-simulator/README.md)
-- [Microsserviço de Backend do Home Broker](ms-homebroker-nest/README.md) (em breve)
+- [Microsserviço de Backend do Home Broker](ms-homebroker-nest/README.md)
 - [Microsserviço de Frontend do Home Broker](ms-homebroker-next/README.md) (em breve)
