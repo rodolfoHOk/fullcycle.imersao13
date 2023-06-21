@@ -23,6 +23,7 @@
 - criar um modulo com nest cli: npx nest generate module prisma
 - criar um serviço com nest cli dentro do modulo prisma: npx nest generate service prisma/prisma
 - criar um recurso com nest cli: npx generate resource / assets / REST API / n
+- criar um controller com nest cli: npx generate controller wallets/wallet-assets
 
 ### Prisma ORM
 
@@ -35,10 +36,12 @@
 
 - Docker
 - arquivo /etc/hosts deve conter linha: 127.0.0.1 host.docker.internal ...
+- ter clonado o repositório git: https://github.com/rodolfoHOk/fullcycle.imersao13.git
+- estar rodando ms-bolsa-simulator ([vide](../ms-bolsa-simulator/README.md))
 
 ### Comandos para rodar
 
-- clonar o repositório git: https://github.com/rodolfoHOk/fullcycle.imersao13.git
+- estando na raiz do repositório
 - cd ms-homebroker-nest
 - docker compose up -d
 - docker compose exec app bash
