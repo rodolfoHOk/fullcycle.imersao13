@@ -13,8 +13,8 @@ export default function Asset({ params }: IProps) {
     <div>
       <h1>Home broker</h1>
 
-      <div>
-        <div>
+      <div className="flex flex-row">
+        <div className="flex flex-col">
           <div>
             <OrderForm
               wallet_id={params.wallet_id}

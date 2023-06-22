@@ -11,6 +11,10 @@
 - Rest
 - Tailwind CSS
 
+### Bibliotecas adicionais
+
+- [Flowbite React](https://www.flowbite-react.com/)
+
 ## React Server Components
 
 Server Side Rendering
@@ -37,5 +41,7 @@ React Server Components
 
 - estando na raiz do repositório
 - cd ms-homebroker-next
+- docker compose up -d
+- docker compose exec app bash
 - npm install
 - npm run dev

@@ -7,7 +7,7 @@ async function getOrders(wallet_id: string): Promise<Order[]> {
     {
       next: {
         tags: [`orders-wallet-${wallet_id}`],
-        revalidate: isHomeBrokerClosed() ? 60 * 60 : 5, // isHomeBrokerClosed? 1 hour or 5 seconds
+        revalidate: isHomeBrokerClosed() ? 60 * 60 : 5, // 1 hour or 5 seconds
       },
     },
   );
