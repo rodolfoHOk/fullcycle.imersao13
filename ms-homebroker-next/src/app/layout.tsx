@@ -1,7 +1,6 @@
+import DefaultNavbar from '@/components/Navbar';
 import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import FlowbiteContext from '@/components/FlowbiteContext';
 
 export const metadata = {
   title: 'Home Broker',
@@ -14,8 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <body className="bg-gray-900 h-screen flex flex-col">
+        <DefaultNavbar />
+        <FlowbiteContext>{children}</FlowbiteContext>
+      </body>
     </html>
   );
 }

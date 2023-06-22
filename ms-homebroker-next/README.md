@@ -14,6 +14,7 @@
 ### Bibliotecas adicionais
 
 - [Flowbite React](https://www.flowbite-react.com/)
+- [Lightweight Charts](https://www.tradingview.com/lightweight-charts/)
 
 ## React Server Components
 
