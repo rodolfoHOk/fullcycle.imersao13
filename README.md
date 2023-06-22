@@ -24,4 +24,4 @@
 
 - [Microsserviço Simulador de Bolsa de Valores](ms-bolsa-simulator/README.md)
 - [Microsserviço de Backend do Home Broker](ms-homebroker-nest/README.md)
-- [Microsserviço de Frontend do Home Broker](ms-homebroker-next/README.md) (em breve)
+- [Microsserviço de Frontend do Home Broker](ms-homebroker-next/README.md)
