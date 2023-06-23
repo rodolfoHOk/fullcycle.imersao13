@@ -1,4 +1,12 @@
-import { Body, Controller, Get, MessageEvent, Post, Sse } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  MessageEvent,
+  Param,
+  Post,
+  Sse,
+} from '@nestjs/common';
 import { AssetsService } from './assets.service';
 import { Observable, map } from 'rxjs';
 
@@ -24,5 +32,10 @@ export class AssetsController {
         data: event.data,
       })),
     );
+  }
+
+  @Get(':id')
+  findById(@Param('id') id: string) {
+    return this.assetsService.findById(id);
   }
 }

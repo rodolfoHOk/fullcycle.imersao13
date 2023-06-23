@@ -20,6 +20,35 @@ model Asset {
 
   WalletAssets WalletAsset[]
   Orders       Order[]
+  Histories    AssetHistory[] @relation("Histories")
+  Dailies      AssetDaily[]   @relation("Dailies")
+}
+
+model AssetHistory {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  asset_id   String   
+  date       DateTime @db.Date
+  open       Float    @db.Double
+  high       Float    @db.Double
+  low        Float    @db.Double
+  close      Float    @db.Double
+  volume     Float    @db.Double
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  asset      Asset    @relation("Histories", fields: [asset_id], references: [id])
+}
+
+model AssetDaily {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  asset_id   String   
+  price      Float    @db.Double
+  date       DateTime @db.Date
+  //volume     Float    @db.Double
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  asset      Asset    @relation("Dailies", fields: [asset_id], references: [id])
 }
 
 model Wallet {

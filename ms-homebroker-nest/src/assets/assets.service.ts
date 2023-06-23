@@ -29,6 +29,14 @@ export class AssetsService {
     });
   }
 
+  findById(id: string) {
+    return this.prismaService.asset.findUniqueOrThrow({
+      where: {
+        id,
+      },
+    });
+  }
+
   subscribeEvents(): Observable<IAssetPriceUpdateEvent> {
     return new Observable((observer) => {
       this.assetModel

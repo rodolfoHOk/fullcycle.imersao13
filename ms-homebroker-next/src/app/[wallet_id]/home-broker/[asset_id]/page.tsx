@@ -1,3 +1,4 @@
+import { AssetChartComponent } from '@/components/AssetChartComponent';
 import { ChartComponent } from '@/components/ChartComponent';
 import { MyOrders } from '@/components/MyOrders';
 import { OrderForm } from '@/components/OrderForm';
@@ -60,14 +61,16 @@ export default function Asset({ params }: IProps) {
               }}
             >
               <SyncOrders wallet_id={params.wallet_id}>
-                <MyOrders wallet_id={params.wallet_id} />
+                <div className="max-h-96 overflow-y-auto overflow-hidden">
+                  <MyOrders wallet_id={params.wallet_id} />
+                </div>
               </SyncOrders>
             </Card>
           </div>
         </div>
 
         <div className="col-span-3 flex flex-grow">
-          <ChartComponent header={`Asset 1 - R$ 100`} />
+          <AssetChartComponent asset_id={params.asset_id} />
         </div>
       </div>
     </main>
