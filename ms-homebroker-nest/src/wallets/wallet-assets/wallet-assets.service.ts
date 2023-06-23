@@ -6,7 +6,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Observable } from 'rxjs';
 import { WalletAsset } from '@prisma/client';
 
-export interface IWalletAssetUpdateEvent {
+interface IWalletAssetUpdateEvent {
   event: 'wallet-asset-updated';
   data: WalletAsset;
 }
@@ -69,6 +69,7 @@ export class WalletAssetsService {
               id: data.fullDocument._id + '',
             },
           });
+
           observer.next({
             event: 'wallet-asset-updated',
             data: walletAsset,
