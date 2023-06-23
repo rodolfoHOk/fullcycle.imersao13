@@ -18,6 +18,7 @@
 - [mongoose](https://mongoosejs.com/)
 - @nestjs/mongoose
 - @nestjs/config
+- [nest-commander](https://docs.nestjs.com/recipes/nest-commander)
 
 ## Arquitetura do backend Nest
 
