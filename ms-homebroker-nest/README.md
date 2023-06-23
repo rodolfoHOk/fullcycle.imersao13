@@ -10,6 +10,8 @@
 - MongoDB
 - Rest
 - Kafka
+- Server Send Events
+- Watch do MongoDB
 
 ## Arquitetura do backend Nest
 
@@ -46,4 +48,5 @@
 - docker compose up -d
 - docker compose exec app bash
 - npm install
+- npx prisma generate
 - npm run start:dev

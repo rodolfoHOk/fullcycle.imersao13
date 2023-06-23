@@ -8,13 +8,16 @@
 - React.js
 - Next.js
 - React Server Components
+- React Client Components
 - Rest
 - Tailwind CSS
+- Server Send Events
 
 ### Bibliotecas adicionais
 
 - [Flowbite React](https://www.flowbite-react.com/)
 - [Lightweight Charts](https://www.tradingview.com/lightweight-charts/)
+- [SWR](https://swr.vercel.app/)
 
 ## React Server Components
 
