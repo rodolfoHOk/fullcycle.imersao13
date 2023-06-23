@@ -4,8 +4,8 @@ import Link from 'next/link';
 import useSWR from 'swr';
 import useSWRSubscription, { SWRSubscriptionOptions } from 'swr/subscription';
 
-import { WalletAsset } from '@/app/models';
-import { fetcher, isHomeBrokerClosed } from '@/utils/utils';
+import { Asset, WalletAsset } from '@/app/models';
+import { fetcher } from '@/utils/utils';
 import {
   Table,
   TableBody,
@@ -48,6 +48,41 @@ export function MyWallet({ wallet_id }: IProps) {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
     },
+  );
+
+  const { data: assetChanged } = useSWRSubscription(
+    `http://localhost:3000/assets/events`,
+    (path, { next }: SWRSubscriptionOptions) => {
+      const eventSource = new EventSource(path);
+
+      eventSource.addEventListener('asset-price-changed', async (event) => {
+        const assetChanged: Asset = JSON.parse(event.data);
+
+        await mutateWalletAssets((prev) => {
+          const foundIndex = prev?.findIndex(
+            (walletAsset) => walletAsset.asset_id === assetChanged.id,
+          );
+
+          if (foundIndex !== -1 && foundIndex !== undefined && prev) {
+            prev[foundIndex].Asset.price = assetChanged.price;
+          }
+
+          return [...prev!];
+        }, false);
+
+        next(null, assetChanged);
+      });
+
+      eventSource.onerror = (error) => {
+        console.error(error);
+        eventSource.close();
+      };
+
+      return () => {
+        eventSource.close();
+      };
+    },
+    {},
   );
 
   const { data: walletAssetUpdated } = useSWRSubscription(
