@@ -1,6 +1,8 @@
 'use client'; // transformamos em client component na aula 5
 
+import Link from 'next/link';
 import useSWR from 'swr';
+import useSWRSubscription, { SWRSubscriptionOptions } from 'swr/subscription';
 
 import { WalletAsset } from '@/app/models';
 import { fetcher, isHomeBrokerClosed } from '@/utils/utils';
@@ -12,7 +14,6 @@ import {
   TableHeadCell,
   TableRow,
 } from './flowbite-components';
-import Link from 'next/link';
 
 // Server Components - Next 13
 // async function getWalletAssets(wallet_id: string): Promise<WalletAsset[]> {
@@ -35,13 +36,53 @@ interface IProps {
 export function MyWallet({ wallet_id }: IProps) {
   // const walletAssets = await getWalletAssets(wallet_id);
 
-  const { data: walletAssets, error } = useSWR<WalletAsset[]>(
+  const {
+    data: walletAssets,
+    error,
+    mutate: mutateWalletAssets,
+  } = useSWR<WalletAsset[]>(
     `http://localhost:3001/api/wallets/${wallet_id}/assets`,
     fetcher,
     {
       fallbackData: [],
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
+    },
+  );
+
+  const { data: walletAssetUpdated } = useSWRSubscription(
+    `http://localhost:3000/wallets/${wallet_id}/assets/events`,
+    (path, { next }: SWRSubscriptionOptions) => {
+      const eventSource = new EventSource(path);
+
+      eventSource.addEventListener('wallet-asset-updated', async (event) => {
+        const walletAssetUpdated: WalletAsset = JSON.parse(event.data);
+
+        await mutateWalletAssets((prev) => {
+          const foundIndex = prev?.findIndex(
+            (walletAsset) =>
+              walletAsset.asset_id === walletAssetUpdated.asset_id,
+          );
+
+          if (foundIndex !== -1 && foundIndex !== undefined && prev) {
+            console.log('aqui');
+            prev[foundIndex].shares = walletAssetUpdated.shares;
+          }
+
+          return [...prev!];
+        }, false);
+
+        next(null, walletAssetUpdated);
+      });
+
+      eventSource.onerror = (error) => {
+        console.error(error);
+        eventSource.close();
+      };
+
+      return () => {
+        eventSource.close();
+      };
     },
   );
 

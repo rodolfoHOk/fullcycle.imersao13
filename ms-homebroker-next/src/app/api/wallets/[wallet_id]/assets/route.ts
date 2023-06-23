@@ -12,7 +12,8 @@ export async function GET(request: NextRequest, { params }: IParameter) {
     `http://host.docker.internal:3000/wallets/${params.wallet_id}/assets`,
     {
       next: {
-        revalidate: isHomeBrokerClosed() ? 60 * 60 : 5, // 1 hour or 5 seconds
+        // revalidate: isHomeBrokerClosed() ? 60 * 60 : 5, // 1 hour or 5 seconds // production
+        revalidate: 1, // development
       },
     },
   );
