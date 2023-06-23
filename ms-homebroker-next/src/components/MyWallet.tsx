@@ -73,8 +73,8 @@ export function MyWallet({ wallet_id }: IProps) {
         next(null, assetChanged);
       });
 
-      eventSource.onerror = (error) => {
-        console.error(error);
+      eventSource.onerror = (errorEvent) => {
+        console.error(errorEvent);
         eventSource.close();
       };
 
@@ -110,8 +110,8 @@ export function MyWallet({ wallet_id }: IProps) {
         next(null, walletAssetUpdated);
       });
 
-      eventSource.onerror = (error) => {
-        console.error(error);
+      eventSource.onerror = (errorEvent) => {
+        console.error(errorEvent);
         eventSource.close();
       };
 

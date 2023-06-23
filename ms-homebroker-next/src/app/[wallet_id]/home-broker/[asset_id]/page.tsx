@@ -1,6 +1,7 @@
 import { ChartComponent } from '@/components/ChartComponent';
 import { MyOrders } from '@/components/MyOrders';
 import { OrderForm } from '@/components/OrderForm';
+import { SyncOrders } from '@/components/SyncOrders';
 import { Card, TabsGroup, TabsItem } from '@/components/flowbite-components';
 import { HiShoppingCart, HiArrowUp } from '@/components/react-icons/hi';
 
@@ -58,7 +59,9 @@ export default function Asset({ params }: IProps) {
                 },
               }}
             >
-              <MyOrders wallet_id={params.wallet_id} />
+              <SyncOrders wallet_id={params.wallet_id}>
+                <MyOrders wallet_id={params.wallet_id} />
+              </SyncOrders>
             </Card>
           </div>
         </div>
