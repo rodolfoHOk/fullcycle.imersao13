@@ -49,7 +49,16 @@ Content-Type: application/json
 
 {
   "asset_id": "asset1",
-  "shares": 10
+  "shares": 100
+}
+
+###
+POST http://localhost:3000/wallets/wallet2/assets
+Content-Type: application/json
+
+{
+  "asset_id": "asset2",
+  "shares": 100
 }
 
 ###

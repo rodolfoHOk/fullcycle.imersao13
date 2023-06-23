@@ -13,6 +13,12 @@
 - Server Send Events
 - Watch do MongoDB
 
+### Bibliotecas adicionais
+
+- [mongoose](https://mongoosejs.com/)
+- @nestjs/mongoose
+- @nestjs/config
+
 ## Arquitetura do backend Nest
 
 ![Arquitetura Backend Nest.js](../arquivos/arquitetura-nest.png)
