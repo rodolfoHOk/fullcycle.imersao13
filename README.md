@@ -1,6 +1,6 @@
 # Imersão FullCycle & FullStack 13 - Home Broker
 
-> Projetos do evento Imersão FullCycle & FullStack 13 - Home Broker da FullCycle / CodeEdu
+> Projetos do evento Imersão FullCycle & FullStack 13 e 16 - Home Broker da FullCycle / CodeEdu
 
 ## Tecnologias
 
